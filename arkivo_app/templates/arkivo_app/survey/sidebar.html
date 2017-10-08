@@ -1,0 +1,19 @@
+
+<ul class="nav flex-column ">
+    {% for sec in survey.get_sections %}
+        <li class="nav-item">
+            <a class="nav-link {% if section == sec %}arkivo-page-sidebar-active{% endif %}" href="{% url 'arkivo_app:survey_sec' project.name sec.name %}" >{{ sec.name }}
+            </a>
+
+            {% if  sec.get_shown_categories.count > 0 %}
+                <ul class="nav flex-column arkivo-page-sidebar-lvl2">
+                    {% for cat in sec.get_shown_categories %}
+                        <li class="nav-item">
+                             <a class="nav-link {% if section == sec and category == cat %}arkivo-page-sidebar-lvl2-active{% endif %}" href="{% url 'arkivo_app:survey_sec_cat' project.name sec.name cat.name %}">{{ cat.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

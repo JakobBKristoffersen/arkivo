@@ -1,0 +1,16 @@
+{% extends 'main_base.html' %}
+{% load staticfiles %}
+
+{% block body_type %} class="arkivo-registration" {% endblock %}
+
+{% block body_content %}
+    <div class="card card-login mx-auto mt-12">
+        <div class="card-header">
+          <img class="arkivo-registration-logo" src="{% static 'img/logo_large.png' %}" alt="logo">
+        </div>
+        <div class="card-body">
+        {% block content %}
+        {% endblock %}
+        </div>
+    </div>
+{% endblock %}

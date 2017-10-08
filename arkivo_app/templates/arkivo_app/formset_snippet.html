@@ -1,0 +1,53 @@
+
+
+{% if display_static %}
+    {% load django_tables2 %}
+    {% render_table table %}
+     {% if allow_edit %}
+        {% with nav_url|add:"_edit" as edit_url %}
+        <a class="btn col-sm-1" href="{% url edit_url %}" >Edit</a>
+        {% endwith %}
+     {% endif %}
+{% else %}
+    <form name="form" action="" method="post" class="form-horizontal">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    <div class="table-responsive">
+        <table class="table table-responsive table-hover"  cellspacing="0">
+            {% for form in formset %}
+                {% if forloop.first %}
+                    <thead>
+                    <tr>
+                    {% for field in form.visible_fields %}
+                    <th>{{ field.label|capfirst }}</th>
+                    {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                {% endif %}
+                <tr>
+                {% for field in form.visible_fields %}
+                    <td>
+                    {# Include the hidden fields in the form #}
+                    {% if forloop.first %}
+                    {% for hidden in form.hidden_fields %}
+                        {{ hidden }}
+                    {% endfor %}
+                    {% endif %}
+                    {{ field.errors.as_ul }}
+                    {{ field }}
+                    </td>
+                {% endfor %}
+                </tr>
+                {% if forloop.last %}
+                    </tbody>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+    {% with nav_url|add:"_add" as edit_url %}
+       <a class="btn col-sm-1" href="{% url edit_url %}" ><i class="fa fa-plus" aria-hidden="true"></i></a>
+     {% endwith %}
+    <button type="submit" class="btn col-sm-1">Submit</button>
+ </form>
+{% endif %}

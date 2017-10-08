@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Arkivo</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'sbadmin/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'sbadmin/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="{% static 'sbadmin/vendor/datatables/dataTables.bootstrap4.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'sbadmin/css/sb-admin.css' %}" rel="stylesheet">
+
+    <!-- Arkivo -->
+    <link href="{% static 'css/arkivo.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body {% block body_type %} {% endblock %}>
+
+    {% block body_content %}
+    {% endblock %}
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'sbadmin/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'sbadmin/vendor/popper/popper.min.js' %}"></script>
+    <script src="{% static 'sbadmin/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'sbadmin/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'sbadmin/vendor/chart.js/Chart.min.js' %}"></script>
+    <script src="{% static 'sbadmin/vendor/datatables/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'sbadmin/vendor/datatables/dataTables.bootstrap4.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'sbadmin/js/sb-admin.min.js' %}"></script>
+    <script src="{% static 'js/arkivo.js' %}"></script>
+
+
+  </body>
+
+</html>

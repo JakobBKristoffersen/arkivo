@@ -1,0 +1,23 @@
+{% extends 'arkivo_app/page_base.html' %}
+
+
+{% block page_sidebar_title %}
+    {{ survey.name }}
+{% endblock %}
+
+{% block page_sidebar_content %}
+{% include "arkivo_app/survey/sidebar.html" %}
+{% endblock %}
+
+{% block page_title %}
+    {{ category.name }}
+{% endblock %}
+
+{% block page_content %}
+    {{ section_name }}
+    {% for q in category.get_questions %}
+        {{ q.text }}
+    {% endfor %}
+{% endblock %}
+
+

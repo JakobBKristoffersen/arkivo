@@ -1,0 +1,38 @@
+{% extends 'arkivo_app/base.html' %}
+
+{% block content %}
+    <div class="arkivo-page">
+        <div class="row">
+            <div class="col-2 arkivo-page-sidebar ">
+                <h1> {% block page_sidebar_title %} Title {% endblock %} </h1>
+                <div class = "arkivo-page-sidebar-nav">
+                    {% block page_sidebar_content %}
+                        <ul class="nav flex-column ">
+                          <li class="nav-item">
+                            <a class="nav-link" href="{% url 'arkivo_app:company' 1 %}">Company Info</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                          </li>
+                        </ul>
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="col-10 arkivo-page-content">
+                <div class="arkivo-page-content">
+                    <h1> {% block page_title %} Title {% endblock %} </h1>
+                    <div class="arkivo-page-content-inner">
+                        {% block page_content %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

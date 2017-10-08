@@ -1,0 +1,21 @@
+{% extends 'arkivo_app/page_base.html' %}
+
+
+{% block page_sidebar_title %}
+    Settings
+{% endblock %}
+
+{% block page_sidebar_content %}
+{% include "arkivo_app/company/sidebar.html" %}
+{% endblock %}
+
+{% block page_title %}
+    Company General Info
+{% endblock %}
+
+{% block page_content %}
+    {% include "arkivo_app/form_snippet.html" with form=form mymodel=company display_static=display_static allow_edit=allow_edit updated=updated nav_url=nav_url table=table %}
+{% endblock %}
+
+
+

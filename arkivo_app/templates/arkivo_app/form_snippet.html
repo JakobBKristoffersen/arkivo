@@ -1,0 +1,50 @@
+{% if form %}
+    <!-- Form Errors -->
+    {% if form.errors %}
+        <ul class="errors">
+            {% for error in form.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- Display Form -->
+    {% if display_static %}
+        <form class="form-horizontal">
+            {% for field in mymodel.get_display_detail.fields %}
+            <div class="form-group row">
+                <label class="control-label col-sm-3">{{ field.label }}:</label>
+                <div class="col-sm-9">
+                    <p class="form-control-static"> {{ field.value }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <! -- From Status -->
+            {% if updated %}
+                <div class="alert alert-success" role="alert">
+                    <strong>Update successful</strong>
+                </div>
+            {% endif %}
+        </form>
+
+        {% if allow_edit %}
+            {% with nav_url|add:"_edit" as edit_url %}
+            <a class="btn col-sm-1" href="{% url edit_url %}" >Edit</a>
+            {% endwith %}
+        {% endif %}
+    {% else %}
+        <form name="form" action="" method="post" class="form-horizontal">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group row">
+                <label class="control-label col-sm-3" for = {{ field.id_for_label }}>{{ field.label_tag }}{{ field.label_suffix }}</label>
+                <div class="col-sm-5">
+                    {{ field }}
+                </div>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn col-sm-1">Submit</button>
+        </form>
+    {% endif %}
+
+{% endif %}

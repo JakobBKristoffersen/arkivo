@@ -1,0 +1,21 @@
+
+<ul class="nav flex-column ">
+  <li class="nav-item">
+    <a class="nav-link {% if nav_url == 'arkivo_app:company' %}arkivo-page-sidebar-active{% endif %}" href="{% url 'arkivo_app:company' %}" >Company Info</a>
+  </li>
+  <li class="nav-item">
+   <a class="nav-link {% if nav_url == 'arkivo_app:company_users' %}arkivo-page-sidebar-active{% endif %}" href="{% url 'arkivo_app:company_users' %}" >Users</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Groups</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if nav_url == 'arkivo_app:company_projects' %}arkivo-page-sidebar-active{% endif %}" href="{% url 'arkivo_app:company_projects' %}" >projects</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Participants</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if nav_url == 'arkivo_app:company_systems' %}arkivo-page-sidebar-active{% endif %}" href="{% url 'arkivo_app:company_systems' %}">Systems</a>
+  </li>
+</ul>
